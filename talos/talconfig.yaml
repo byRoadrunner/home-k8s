@@ -41,8 +41,8 @@ nodes:
     ipAddress: "192.168.110.202"
     installDisk: "/dev/sda"
     machineSpec:
-      secureboot: false
-    talosImageURL: factory.talos.dev/installer/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -60,8 +60,8 @@ nodes:
     ipAddress: "192.168.110.203"
     installDisk: "/dev/sda"
     machineSpec:
-      secureboot: false
-    talosImageURL: factory.talos.dev/installer/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -88,4 +88,3 @@ patches:
 controlPlane:
   patches:
     - "@./patches/controller/cluster.yaml"
-
