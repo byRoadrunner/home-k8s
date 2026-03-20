@@ -23,7 +23,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
+    talosImageURL: factory.talos.dev/installer-secureboot/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -42,7 +42,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
+    talosImageURL: factory.talos.dev/installer-secureboot/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -61,7 +61,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/17bd088c71807ae797c16e85efb133b27814f1a333312bf597c3d4bc6f7c13d7
+    talosImageURL: factory.talos.dev/installer-secureboot/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
