@@ -9,6 +9,13 @@ spec:
     name: immich
   interval: 1h
   values:
+    controllers:
+    main:
+      containers:
+        main:
+          image:
+            tag: v2.6.1
+
     immich:
       persistence:
         library:
