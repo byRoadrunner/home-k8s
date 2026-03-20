@@ -6,7 +6,7 @@ metadata:
 spec:
   dependsOn:
     - name: cnpg
-      namespace: flux-system
+      namespace: database
   interval: 1h
   path: ./kubernetes/apps/immich/immich/app
   postBuild:
