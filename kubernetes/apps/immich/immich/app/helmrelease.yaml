@@ -23,31 +23,11 @@ spec:
           containers:
             main:
               env:
-                DB_HOSTNAME:
+                DB_URL:
                   valueFrom:
                     secretKeyRef:
                       name: immich-db-app
-                      key: host
-                DB_PORT:
-                  valueFrom:
-                    secretKeyRef:
-                      name: immich-db-app
-                      key: port
-                DB_DATABASE_NAME:
-                  valueFrom:
-                    secretKeyRef:
-                      name: immich-db-app
-                      key: dbname
-                DB_USERNAME:
-                  valueFrom:
-                    secretKeyRef:
-                      name: immich-db-app
-                      key: user
-                DB_PASSWORD:
-                  valueFrom:
-                    secretKeyRef:
-                      name: immich-db-app
-                      key: password
+                      key: uri
       route:
         main:
           hostnames: ["immich.${SECRET_DOMAIN}"]
