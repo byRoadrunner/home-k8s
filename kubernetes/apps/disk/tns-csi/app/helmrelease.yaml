@@ -40,13 +40,13 @@ spec:
         enabled: true
         protocol: nfs
         pool: "tank"
-        parentDataset: "k8s"
+        parentDataset: "tank/k8s"
         reclaimPolicy: Delete
         allowVolumeExpansion: true
       - name: tns-csi-iscsi
         enabled: true
         protocol: iscsi
         pool: "tank"
-        parentDataset: "k8s"
+        parentDataset: "tank/k8s"
         reclaimPolicy: Delete
         allowVolumeExpansion: true
