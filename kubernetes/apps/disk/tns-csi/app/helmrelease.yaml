@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tns-csi
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: tns-csi
+  interval: 1h
+  valuesFrom:
+    - kind: Secret
+      name: tns-csi-secret
+      valuesKey: apiKey
+      targetPath: truenas.apiKey
+    - kind: Secret
+      name: tns-csi-secret
+      valuesKey: truenasUrl
+      targetPath: truenas.url
+    - kind: Secret
+      name: tns-csi-secret
+      valuesKey: truenasServer
+      targetPath: storageClasses[0].server
+    - kind: Secret
+      name: tns-csi-secret
+      valuesKey: truenasServer
+      targetPath: storageClasses[1].server
+  values:
+    truenas:
+      skipTLSVerify: true
+    node:
+      kubeletPath: /var/lib/kubelet
+    controller:
+      metrics:
+        enabled: true
+    serviceMonitor:
+      enabled: true
+    storageClasses:
+      - name: tns-csi-nfs
+        enabled: true
+        protocol: nfs
+        pool: tank
+        parentDataset: k8s
+        reclaimPolicy: Delete
+        allowVolumeExpansion: true
+      - name: tns-csi-iscsi
+        enabled: true
+        protocol: iscsi
+        pool: tank
+        parentDataset: k8s
+        reclaimPolicy: Delete
+        allowVolumeExpansion: true
