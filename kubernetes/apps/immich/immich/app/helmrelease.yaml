@@ -10,11 +10,12 @@ spec:
   interval: 1h
   values:
     controllers:
-    main:
-      containers:
-        main:
-          image:
-            tag: v2.6.1
+      main:
+        containers:
+          main:
+            image:
+              # renovate: datasource=github-releases depName=immich-app/immich
+              tag: v2.6.1
 
     immich:
       persistence:
