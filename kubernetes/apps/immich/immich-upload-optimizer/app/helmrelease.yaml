@@ -1,0 +1,48 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: immich-upload-optimizer
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: immich-upload-optimizer
+  interval: 1h
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/miguelangel-nubla/immich-upload-optimizer
+              # renovate: datasource=github-releases depName=miguelangel-nubla/immich-upload-optimizer
+              tag: v0.5.3
+            env:
+              IUO_UPSTREAM: http://immich-server:2283
+              IUO_TASKS_FILE: /etc/immich-upload-optimizer/config/tasks.yaml
+
+    service:
+      main:
+        ports:
+          http:
+            port: 2283
+
+    persistence:
+      config:
+        type: configMap
+        name: immich-upload-optimizer-config
+        globalMounts:
+          - path: /etc/immich-upload-optimizer/config/tasks.yaml
+            subPath: tasks.yaml
+
+    route:
+      main:
+        hostnames: ["immich.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: envoy-external
+            namespace: network
+            sectionName: https
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: 2283

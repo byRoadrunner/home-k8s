@@ -9,3 +9,4 @@ components:
 resources:
   - ./namespace.yaml
   - ./immich/ks.yaml
+  - ./immich-upload-optimizer/ks.yaml
