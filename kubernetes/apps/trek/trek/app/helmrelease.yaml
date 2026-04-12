@@ -17,7 +17,6 @@ spec:
     env:
       ALLOWED_ORIGINS: "https://trek.${SECRET_DOMAIN}"
       APP_URL: "https://trek.${SECRET_DOMAIN}"
-      FORCE_HTTPS: "true"
       TRUST_PROXY: "1"
       TZ: Europe/Berlin
     existingSecret: trek-secret
