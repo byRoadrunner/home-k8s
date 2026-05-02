@@ -9,7 +9,7 @@ spec:
     spec:
       chart: trek
       interval: 12h
-      version: 3.0.8
+      version: 3.0.13
       sourceRef:
         kind: HelmRepository
         name: trek
